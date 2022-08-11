@@ -1,0 +1,141 @@
+// primary colors
+$Dark-cyan: hsl(158, 36%, 37%);
+$Cream: hsl(30, 38%, 92%);
+// neutral colors
+$Very-dark-blue: hsl(212, 21%, 14%);
+$Dark-grayish-blue: hsl(228, 12%, 48%);
+$White: hsl(0, 0%, 100%);
+// screen sizes
+
+$Desktop: 625px;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.875rem;
+  background-color: $Cream;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+p {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+.main {
+  width: 85%;
+  margin: auto;
+  .card {
+    background-color: $White;
+    border-radius: 1em;
+    overflow: hidden;
+    max-width: 22rem;
+    margin: auto;
+    @media (min-width: $Desktop) {
+      display: flex;
+      max-width: 35rem;
+    }
+    &__image {
+      img {
+        object-fit: cover;
+        height: 100%;
+      }
+      .desktop-image {
+        display: none;
+      }
+      @media (min-width: $Desktop) {
+        width: 50%;
+        .desktop-image {
+          display: block;
+        }
+        .mobile-image {
+          display: none;
+        }
+      }
+    }
+    &__body {
+      padding: 1.5em;
+
+      @media (min-width: $Desktop) {
+        padding: 2em;
+        width: 50%;
+      }
+    }
+    &__product-type {
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: $Dark-grayish-blue;
+    }
+    &__title {
+      font-family: "fraunces", serif;
+      font-weight: 700;
+      color: $Very-dark-blue;
+      @media (min-width: $Desktop) {
+        font-size: 2rem;
+      }
+    }
+    &__text {
+      line-height: 1.6;
+      color: $Dark-grayish-blue;
+    }
+    &__price {
+      margin: 1em 0;
+      display: flex;
+      align-items: center;
+      &__current-price {
+        font-family: "fraunces", serif;
+        font-size: 2rem;
+        color: $Dark-cyan;
+        font-weight: 700;
+      }
+      &__old-price {
+        margin-left: 1.5em;
+        color: $Dark-grayish-blue;
+        text-decoration: line-through;
+      }
+    }
+    &__button {
+      border: none;
+      background-color: $Dark-cyan;
+      color: $White;
+      padding: 1em 3em;
+      width: 100%;
+      border-radius: 0.5em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 250ms ease-in-out;
+      &:hover {
+        background-color: darken($Dark-cyan, 15%);
+      }
+      .cart-icon {
+        margin-right: 1em;
+      }
+    }
+  }
+}
+.attribution {
+  background-color: $Dark-cyan;
+  color: $White;
+  font-size: 11px;
+  text-align: center;
+  padding: 1em;
+  a {
+    color: darken($Dark-cyan, 50%);
+    font-weight: 700;
+  }
+}
